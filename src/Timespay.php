@@ -57,4 +57,40 @@ class Timespay
         return @file_get_contents($url, false, $context);
     }
 
+    public static function rsa_sign(string $string, bool $dbg=false):string
+        {
+            try{
+
+            }catch (\Exception $e) {
+                        return$e->getMessage();
+                    }
+        }
+
+    public static function rsa_verify_sign(string $string, bool $dbg=false):bool
+    {
+        try{
+
+        }catch (\Exception $e) {
+            return$e->getMessage();
+        }
+    }
+
+    public static function rsa_encryp(string $string, bool $dbg=false):string
+    {
+        try{
+
+        }catch (\Exception $e) {
+            return$e->getMessage();
+        }
+    }
+
+    public static function rsa_decrypt(string $string, bool $dbg=false):string
+    {
+        try{
+
+        }catch (\Exception $e) {
+            return$e->getMessage();
+        }
+    }
+
 }
