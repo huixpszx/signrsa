@@ -57,19 +57,38 @@ class Timespay
         return @file_get_contents($url, false, $context);
     }
 
-    public static function rsa_sign(string $string, bool $dbg=false):string
+    public static function rsa_sign(string $string, string $privKey_path):string
         {
             try{
-
+                    //通过存放路径，读取私钥
+                    if(file_exists($privKey_path)){
+                        $prk = file_get_contents($privKey_path);
+                        $privKey = openssl_pkey_get_private($prk);
+                    }else{
+                        return ('RSA私钥文件不存在');
+                    }
+                  if(!empty($privKey)){
+                        openssl_sign($string, $sign, $privKey);
+                        //base64编码
+                      return base64_encode($sign);
+                    }
+                  return 'err';
             }catch (\Exception $e) {
                         return$e->getMessage();
                     }
         }
 
-    public static function rsa_verify_sign(string $string, bool $dbg=false):bool
+    public static function rsa_verify_sign(string $string, string $sign, string $times_pubKey_path):bool
     {
         try{
-
+                //通过存放路径，读取我方公钥
+                if(file_exists($times_pubKey_path)){
+                    $prk = file_get_contents($times_pubKey_path);
+                    $times_pubKey = openssl_pkey_get_private($prk);
+                }else{
+                    return ('公钥文件不存在');
+                }
+            return (bool)openssl_verify($string, base64_decode($sign), $times_pubKey);
         }catch (\Exception $e) {
             return$e->getMessage();
         }
