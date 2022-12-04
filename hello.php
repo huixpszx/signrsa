@@ -1,6 +1,6 @@
 <?php
 require 'vendor/autoload.php';
 
-use Timespay\Signrsa\Tools;
+use Timespay\Signrsa\Timespay;
 
-echo Tools::test();
+echo Timespay::test('12580');

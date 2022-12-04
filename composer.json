@@ -1,6 +1,6 @@
 {
     "name": "timespay/signrsa",
-    "description": "get rsa",
+    "description": "get post rsa sign",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -13,5 +13,6 @@
             "email": "40597709+huixpszx@users.noreply.github.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {}
 }
