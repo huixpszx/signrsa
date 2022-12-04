@@ -1,0 +1,17 @@
+{
+    "name": "timespay/signrsa",
+    "description": "get rsa",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Timespay\\Signrsa\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "huixpszx",
+            "email": "40597709+huixpszx@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
