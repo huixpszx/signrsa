@@ -1,6 +1,5 @@
 <?php
 namespace Timespay\Signrsa;
-use zjkal\TimeHelper;
 
 class Timespay
 {
@@ -16,7 +15,7 @@ class Timespay
     public static function dbg(int $timeStart, string $dbg_name='logdbg', $msgDbg = '执行完毕')
             {
                 try{
-                        $timeEnd = TimeHelper::getMicroTimestamp();
+                        $timeEnd = self::getMicroTimestamp();
                         $timeNeed = ($timeEnd - $timeStart) / 1000000;//6个0是微秒
                         self::logdbg($dbg_name,$msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。');
                         echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
@@ -148,6 +147,33 @@ class Timespay
 
         }catch (\Exception $e) {
             return$e->getMessage();
+        }
+    }
+
+    /**
+     * 获得微秒级的时间戳
+     * @return int
+     */
+    public static function getMicroTimestamp(): int
+    {
+        return self::getTimestamp(2);
+    }
+
+    /**
+     * 获得秒级/毫秒级/微秒级/纳秒级时间戳
+     * @param int $level 默认0,获得秒级时间戳. 1.毫秒级时间戳; 2.微秒级时间戳; 3.纳米级时间戳
+     * @return int
+     */
+    public static function getTimestamp(int $level = 0): int
+    {
+        if ($level === 0) return time();
+        list($msc, $sec) = explode(' ', microtime());
+        if ($level === 1) {
+            return intval(sprintf('%.0f', (floatval($msc) + floatval($sec)) * 1000));
+        } elseif ($level === 2) {
+            return intval(sprintf('%.0f', (floatval($msc) + floatval($sec)) * 1000 * 1000));
+        } else {
+            return intval(sprintf('%.0f', (floatval($msc) + floatval($sec)) * 1000 * 1000 * 1000));
         }
     }
 
