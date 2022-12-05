@@ -13,7 +13,7 @@ class Timespay
                     }
         }
 
-    public static function dbg(int $timeStart, string $dbg_name='logdbg', $msgDbg = '执行完毕'):string
+    public static function dbg(int $timeStart, string $dbg_name='logdbg', $msgDbg = '执行完毕')
             {
                 try{
                         $timeEnd = TimeHelper::getMicroTimestamp();
