@@ -100,7 +100,7 @@ class Timespay
                 openssl_sign($string, $sign, $privKey);
                 //base64编码
                 $sign = base64_encode($sign);
-                self::rsa_verify_sign($string,$sign,true);
+                //   self::rsa_verify_sign($string,$sign,true);
                 return $sign;
             }else{
                 return ('RSA私钥文件不存在');
