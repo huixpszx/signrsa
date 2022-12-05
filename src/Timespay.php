@@ -12,7 +12,7 @@ class Timespay
         }
     }
 
-    public static function timedbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='logdbg')
+    public static function time_dbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='logdbg')
     {
         try{
             $timeEnd = self::getMicroTimestamp();
@@ -24,7 +24,7 @@ class Timespay
         }
     }
 
-    public static function logdbg($rst, $category = '',$dbg_name='logdbg')
+    public static function normal_dbg($rst, $category = '',$dbg_name='logdbg'): void
     {
         $r['时间'] = date('Y-m-d H:i:s');
         if ($category) $r['目的'] = $category;
