@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Documents/svn_air_m2/tplearn/.idea/mybapp.iml" filepath="$USER_HOME$/Documents/svn_air_m2/tplearn/.idea/mybapp.iml" />
       <module fileurl="file://$USER_HOME$/Documents/svn_air_m2/payminiwx/.idea/payminiwx.iml" filepath="$USER_HOME$/Documents/svn_air_m2/payminiwx/.idea/payminiwx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/signrsa.iml" filepath="$PROJECT_DIR$/.idea/signrsa.iml" />
     </modules>

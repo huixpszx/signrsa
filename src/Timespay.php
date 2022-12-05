@@ -4,25 +4,25 @@ namespace Timespay\Signrsa;
 class Timespay
 {
     public static function test($text='test-ok')
-        {
-            try{
-                return $text;
-            }catch (\Exception $e) {
-                        return $e->getMessage();
-                    }
+    {
+        try{
+            return $text;
+        }catch (\Exception $e) {
+            return $e->getMessage();
         }
+    }
 
-    public static function dbg(int $timeStart, string $dbg_name='logdbg', $msgDbg = '执行完毕')
-            {
-                try{
-                        $timeEnd = self::getMicroTimestamp();
-                        $timeNeed = ($timeEnd - $timeStart) / 1000000;//6个0是微秒
-                        self::logdbg($dbg_name,$msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。');
-                        echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
-                }catch (\Exception $e) {
-                            return $e->getMessage();
-                        }
-            }
+    public static function dbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='logdbg')
+    {
+        try{
+            $timeEnd = self::getMicroTimestamp();
+            $timeNeed = ($timeEnd - $timeStart) / 1000000;//6个0是微秒
+            self::logdbg($dbg_name,$msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。');
+            echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
+        }catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     public static function logdbg($dbg_name,$rst, $category = '')
     {
@@ -89,7 +89,7 @@ class Timespay
     public static function rsa_sign(string $string='123',string $www='/www/wwwroot/tp'):string
     {
         try{
-            $privKey_path = $www.'/vendor/timespay/signrsa/src/rsa/rsa_private_key.pem';
+            $privKey_path = $www.'/vendor/timespay/signrsa/src/rsa/PRIVATE.pem';
             if(file_exists($privKey_path)){
                 $prk = file_get_contents($privKey_path);
                 $privKey = openssl_pkey_get_private($prk);
@@ -100,7 +100,7 @@ class Timespay
                 openssl_sign($string, $sign, $privKey);
                 //base64编码
                 $sign = base64_encode($sign);
-                self::rsa_verify_sign($string,$sign);
+                self::rsa_verify_sign($string,$sign,true);
                 return $sign;
             }else{
                 return ('RSA私钥文件不存在');
@@ -110,10 +110,10 @@ class Timespay
         }
     }
 
-    public static function rsa_verify_sign(bool $show=false,string $string='123',string $sign='', string $www='/www/wwwroot/tp'):bool
+    public static function rsa_verify_sign(string $string='123',string $sign='',bool $show=false, string $www='/www/wwwroot/tp'):bool
     {
         try{
-            $times_pubKey_path = $www.'/vendor/timespay/signrsa/src/rsa/rsa_public_key.pem';
+            $times_pubKey_path = $www.'/vendor/timespay/signrsa/src/rsa/PUB.pem';
             if(file_exists($times_pubKey_path)){
                 $prk = file_get_contents($times_pubKey_path);
                 $times_pubKey = openssl_pkey_get_public($prk);
@@ -174,6 +174,22 @@ class Timespay
         } else {
             return intval(sprintf('%.0f', (floatval($msc) + floatval($sec)) * 1000 * 1000 * 1000));
         }
+    }
+
+    /**
+     * uuid
+     * @return string
+     */
+    static public function uuid(): string
+    {
+        $data = isset($_SERVER['REQUEST_TIME']) ? $_SERVER['REQUEST_TIME'] : '';
+        $data .= isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+        $data .= isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : '';
+        $data .= isset($_SERVER['SERVERL_PORT']) ? $_SERVER['SERVERL_PORT'] : '';
+        $data .= isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+        $data .= isset($_SERVER['REMOTE_PORT']) ? $_SERVER['REMOTE_PORT'] : '';
+        $uuid = strtoupper(md5(uniqid() . mt_rand() . $data));
+        return $uuid;
     }
 
 }

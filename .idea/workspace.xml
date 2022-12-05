@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39096757-b0eb-42cb-aff7-882ab1b52fcb" name="变更" comment="将获取毫秒级的函数写到自己的方法里，避免引用其他插件">
+    <list default="true" id="39096757-b0eb-42cb-aff7-882ab1b52fcb" name="变更" comment="">
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/app/controller/Index.php" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/app/controller/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/signrsa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/signrsa.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+    <list id="7abb344d-5ffe-4aed-b371-6cc281bedf3f" name="默认变更列表" comment="">
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/composer.json" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/composer.json" afterDir="false" />
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/composer.lock" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/composer.lock" afterDir="false" />
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/installed.json" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/installed.php" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/services.php" beforeDir="false" afterPath="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/services.php" afterDir="false" />
+    </list>
+    <file path="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/composer.lock" ignored="false" />
+    <file path="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/services.php" ignored="false" />
+    <file path="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/composer.json" ignored="false" />
+    <file path="$USER_HOME$/Documents/svn_air_m2/tplearn/tp/vendor/composer/autoload_psr4.php" ignored="false" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,25 +46,33 @@
     </include_path>
   </component>
   <component name="ProjectId" id="2ITq3lHQ8Ijh4K0zsQ4GFVYmO6M" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/svn_hpi9&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/svn_hpi9",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="main" />
+    </force-push-targets>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -61,6 +85,10 @@
           <option name="myVcsRoot" value="$USER_HOME$/Documents/svn_air_m2/payminiwx" />
           <option name="myCopyRoot" value="$USER_HOME$/Documents/svn_air_m2/payminiwx" />
         </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$USER_HOME$/Documents/svn_air_m2/tplearn" />
+          <option name="myCopyRoot" value="$USER_HOME$/Documents/svn_air_m2/tplearn" />
+        </SvnCopyRootSimple>
       </list>
     </option>
     <option name="myMoreRealMappingRoots">
@@ -68,6 +96,10 @@
         <SvnCopyRootSimple>
           <option name="myVcsRoot" value="$USER_HOME$/Documents/svn_air_m2/payminiwx" />
           <option name="myCopyRoot" value="$USER_HOME$/Documents/svn_air_m2/payminiwx" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$USER_HOME$/Documents/svn_air_m2/tplearn" />
+          <option name="myCopyRoot" value="$USER_HOME$/Documents/svn_air_m2/tplearn" />
         </SvnCopyRootSimple>
       </list>
     </option>
@@ -83,7 +115,7 @@
       <workItem from="1670216293505" duration="9000" />
       <workItem from="1670216434569" duration="94000" />
       <workItem from="1670226479863" duration="47000" />
-      <workItem from="1670226614384" duration="637000" />
+      <workItem from="1670226614384" duration="2997000" />
     </task>
     <task id="LOCAL-00001" summary="将获取毫秒级的函数写到自己的方法里，避免引用其他插件">
       <created>1670226891910</created>
@@ -99,7 +131,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670226938991</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="将获取毫秒级的函数写到自己的方法里，避免引用其他插件">
+      <created>1670227267622</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670227267622</updated>
+    </task>
+    <task id="LOCAL-00004" summary="将获取毫秒级的函数写到自己的方法里，避免引用其他插件--1">
+      <created>1670227983323</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670227983323</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +163,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="将获取毫秒级的函数写到自己的方法里，避免引用其他插件" />
-    <option name="LAST_COMMIT_MESSAGE" value="将获取毫秒级的函数写到自己的方法里，避免引用其他插件" />
+    <MESSAGE value="将获取毫秒级的函数写到自己的方法里，避免引用其他插件--1" />
+    <option name="LAST_COMMIT_MESSAGE" value="将获取毫秒级的函数写到自己的方法里，避免引用其他插件--1" />
   </component>
 </project>
