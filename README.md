@@ -28,6 +28,12 @@ composer update timespay/signrsa '@dev'
 
 8.rsa_decrypt，rsa解密，对方传来的加密字符串，传参[自己的私钥存放路径]，解密成明文
 
-9.dbg，linux记录日志，传参[开始的微秒，需要记录的内容，目录（默认logdbg）]，自动新建tmp/记录目录名
+9.timedbg，linux记录日志，传参[开始的微秒，需要记录的内容，目录（默认logdbg）]，自动新建tmp/记录目录名
 
-10.uuid，获取一个唯[唯一订单号]
+10.logdbg，只记录需要记录的内容，[不记录耗时]
+
+11.uuid，获取一个唯[唯一订单号]
+
+12.getClient_ip，获取[来访的IP地址]
+
+13.ipWhite，传参[白名单的数组格式]，判断是否在[Ip白名单内]

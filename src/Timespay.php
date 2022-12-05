@@ -12,19 +12,19 @@ class Timespay
         }
     }
 
-    public static function dbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='logdbg')
+    public static function timedbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='logdbg')
     {
         try{
             $timeEnd = self::getMicroTimestamp();
             $timeNeed = ($timeEnd - $timeStart) / 1000000;//6个0是微秒
-            self::logdbg($dbg_name,$msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。');
+            self::logdbg($msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。',$dbg_name);
             echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
         }catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public static function logdbg($dbg_name,$rst, $category = '')
+    public static function logdbg($rst, $category = '',$dbg_name='logdbg')
     {
         $r['时间'] = date('Y-m-d H:i:s');
         if ($category) $r['目的'] = $category;
@@ -191,5 +191,36 @@ class Timespay
         $uuid = strtoupper(md5(uniqid() . mt_rand() . $data));
         return $uuid;
     }
+
+    /**
+     * @return array|false|mixed|string
+     */
+    public static function getClient_ip()
+    {
+        $client_ip = "127.0.0.1";
+        if (getenv('HTTP_CLIENT_IP')) {
+            $client_ip = getenv('HTTP_CLIENT_IP');
+        } elseif (getenv('HTTP_X_FORWARDED_FOR')) {
+            $client_ip = getenv('HTTP_X_FORWARDED_FOR');
+        } elseif (getenv('REMOTE_ADDR')) {
+            $client_ip = getenv('REMOTE_ADDR');
+        } else {
+            $client_ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $client_ip;
+    }
+
+    public static function ipWhite($ip_white=['127.0.0.1'])
+    {
+        $ip = self::getClient_ip();
+        $from_json = file_get_contents('php://input', 'r');
+        self::logdbg($from_json, '不管是否在白名单，都记录原始信息。');
+        if (!in_array($ip, $ip_white, true)) {
+            $msg = $ip .  '，不在白名单，退出。';
+            exit($msg);
+        }
+        return $from_json;
+    }
+
 
 }
