@@ -27,3 +27,5 @@ composer update timespay/signrsa '@dev'
 7.rsa_encryp，rsa加密，将字符串传参[对方的公钥存放路径]加密，用于通讯中不想被人看到明文
 
 8.rsa_decrypt，rsa解密，对方传来的加密字符串，传参[自己的私钥存放路径]，解密成明文
+
+9.dbg，linux记录日志，传参[开始微秒，记录目录名，执行结果]，自动新建tmp/记录目录名
