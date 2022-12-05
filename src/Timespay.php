@@ -12,19 +12,19 @@ class Timespay
         }
     }
 
-    public static function time_dbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='logdbg')
+    public static function time_dbg(int $timeStart, $msgDbg = '执行完毕', string $dbg_name='time_dbg')
     {
         try{
             $timeEnd = self::getMicroTimestamp();
             $timeNeed = ($timeEnd - $timeStart) / 1000000;//6个0是微秒
-            self::logdbg($msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。',$dbg_name);
+            self::normal_dbg($msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。',$dbg_name);
             echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
         }catch (\Exception $e) {
             return $e->getMessage();
         }
     }
 
-    public static function normal_dbg($rst, $category = '',$dbg_name='logdbg'): void
+    public static function normal_dbg($rst, $category = '',$dbg_name='normal_dbg'): void
     {
         $r['时间'] = date('Y-m-d H:i:s');
         if ($category) $r['目的'] = $category;
@@ -214,7 +214,7 @@ class Timespay
     {
         $ip = self::getClient_ip();
         $from_json = file_get_contents('php://input', 'r');
-        self::logdbg($from_json, '不管是否在白名单，都记录原始信息。');
+        self::normal_dbg($from_json, '不管是否在白名单，都记录原始信息。');
         if (!in_array($ip, $ip_white, true)) {
             $msg = $ip .  '，不在白名单，退出。';
             exit($msg);
