@@ -89,7 +89,6 @@ class Timespay
     public static function rsa_sign(string $string='123',string $www='/www/wwwroot/tp'):string
     {
         try{
-            $time_start = TimeHelper::getMicroTimestamp();
             $privKey_path = $www.'/vendor/timespay/signrsa/src/rsa/rsa_private_key.pem';
             if(file_exists($privKey_path)){
                 $prk = file_get_contents($privKey_path);
