@@ -1,12 +1,5 @@
 安装方法：
-composer require timespay/signrsa '@dev'
-
-
-
-升级方法
-composer update timespay/signrsa '@dev'
-
-
+composer require timespay/signrsa
 
 使用方法
 1.test，用于测试接口是否正常，正常返回[test-ok]
