@@ -13,8 +13,9 @@
             "email": "40597709+huixpszx@users.noreply.github.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
       "ext-openssl": "*"
-    }
+    },
+    "version": "1.0.1"
 }
