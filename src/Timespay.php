@@ -131,21 +131,36 @@ class Timespay
         }
     }
 
-    public static function rsa_encryp(string $string, bool $dbg=false):string
+    //  加密的目的是变成无意义的字符串，想真正看懂明文，需要唯一对应的私钥才能解，否则就是无意义的
+    public static function rsa_encryp(string $string, bool $dbg=false, string $www='/www/wwwroot/M2/RsaUsdtBack')
     {
         try{
-
+            $times_pubKey_path = $www.'/app/rsatest/public_key.pem';
+            self::normal_dbg($times_pubKey_path,'公钥文件跟路名'.__METHOD__);
+            if(file_exists($times_pubKey_path)){
+                $prk = file_get_contents($times_pubKey_path);
+                $times_pubKey = openssl_pkey_get_public($prk);
+                openssl_public_encrypt($string, $encrypted, $times_pubKey);
+                return base64_encode($encrypted);
+            }
         }catch (\Exception $e) {
-            return$e->getMessage();
+            return$e->getMessage().$e->getLine();
         }
     }
 
-    public static function rsa_decrypt(string $string, bool $dbg=false):string
+    public static function rsa_decrypt(string $string, string $priappkey=NULL, string $www='/www/wwwroot/M2/RsaUsdtBack')
     {
+        //  写rsa私钥解密的办法
         try{
-
+            $times_priKey_path = $www.'/app/rsatest/rsa_private_key.pem';
+            if(file_exists($times_priKey_path)){
+                $prik = file_get_contents($times_priKey_path);
+                $times_priKey = openssl_pkey_get_private($prik,$priappkey);
+                openssl_private_decrypt(base64_decode($string), $string, $times_priKey);
+                return $string;
+            }
         }catch (\Exception $e) {
-            return$e->getMessage();
+            return$e->getMessage().$e->getLine();
         }
     }
 
