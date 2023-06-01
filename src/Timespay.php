@@ -18,7 +18,8 @@ class Timespay
             $timeEnd = self::getMicroTimestamp();
             $timeNeed = ($timeEnd - $timeStart) / 1000000;//6个0是微秒
             self::normal_dbg($data,$msgDbg . '，' . $dbg_name . '，至此已耗时' . $timeNeed . '秒。');
-            echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
+            // echo '至此已耗时：' . $timeNeed . '秒。<br><br>';
+			// 上一句会造成收单显示的异常
         }catch (\Exception $e) {
             return $e->getMessage();
         }
