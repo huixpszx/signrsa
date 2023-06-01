@@ -40,6 +40,22 @@ class Timespay
         file_put_contents($path . '/' . date('Ymd') . '_debug.log', print_r($r, true) . "\r\n" . str_repeat('=', 80) . "\r\n", FILE_APPEND);
     }
 
+    public static function new_dbg($dbg_name,$rst, $category = ''): void
+    {
+        $r['时间'] = date('Y-m-d H:i:s');
+        if ($category) $r['目的'] = $category;
+        $r['具体内容'] = $rst;
+
+        $path = '/tmp/'.$dbg_name.'/' . date('Ym');
+        if (!is_dir($path)) {
+            if (!mkdir($path, 0777, true) && !is_dir($path)) {
+                exit(sprintf('Directory "%s" was not created', $path));
+            }
+        }
+
+        file_put_contents($path . '/' . date('Ymd') . '_debug.log', print_r($r, true) . "\r\n" . str_repeat('=', 80) . "\r\n", FILE_APPEND);
+    }
+
     public static function send_post_from($url, $post_data,$time = '10')
     { //POST FROM格式，即是传字符串，不是传json格式
         $postdata = http_build_query($post_data);
