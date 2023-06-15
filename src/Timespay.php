@@ -69,7 +69,10 @@ class Timespay
             )
         );
         $content = stream_context_create($options);
-        return file_get_contents($url, false, $content);
+        $timeStart = self::getMicroTimestamp();
+        $res = file_get_contents($url, false, $content);
+        self::time_dbg($timeStart, $res, '从上游得到的原始回应和耗时');
+        return $res;
     }
 
     public static function httpGet($url, $headers = [], $cookies = [])
