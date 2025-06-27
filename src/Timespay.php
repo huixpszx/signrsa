@@ -286,5 +286,19 @@ class Timespay
         return $from_json;
     }
 
+    public static function HttpPostJson(string $url, array $params): bool|string
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($params));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+        ));
+        $result = curl_exec($curl);
+        curl_close($curl);
+        return $result;
+    }
 
 }
