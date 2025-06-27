@@ -2,6 +2,12 @@
 composer require timespay/signrsa
 
 使用方法
+0.并发方法安装
+composer require react/http
+composer update react/event-loop
+
+
+
 1.test，用于测试接口是否正常，正常返回[test-ok]
 
 2.send_post_from，传参[提交地址，提交的数组，连接超时秒数（不传则默认10秒）]，

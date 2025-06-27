@@ -1,8 +1,28 @@
 <?php
 namespace Timespay\Signrsa;
 
+use Psr\Http\Message\ResponseInterface;
+use React\EventLoop\Loop;
+use React\Http\Browser;
+
 class Timespay
 {
+    public static function Concurrency($urls = ['https://www.baidu.com', 'https://www.qq.com', 'https://www.taobao.com']): void
+    {
+        $loop = Loop::get();
+        $client = new Browser($loop);
+        foreach ($urls as $url) {
+            $client->get($url)->then(
+                function (ResponseInterface $response) use ($url) {
+                    echo "Fetched {$url}: " . substr($response->getBody(), 0, 10) . PHP_EOL;
+                },
+                function (\Exception $e) use ($url) {
+                    echo "Error fetching {$url}: " . $e->getMessage() . PHP_EOL;
+                }
+            );
+        }
+        $loop->run();
+    }
     public static function test($text='test-ok')
     {
         try{
